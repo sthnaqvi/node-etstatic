@@ -1,14 +1,14 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../');
+const etstatic = require('../');
 const http = require('http');
 const request = require('request');
 
 test('should not add trailing slash when showDir and autoIndex are off', (t) => {
   t.plan(3);
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root: `${__dirname}/public`,
       autoIndex: false,
       showDir: false,

@@ -1,12 +1,12 @@
 'use strict';
 
 const express = require('express');
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 
 const app = express();
 
-app.use(ecstatic({
+app.use(etstatic({
   root: `${__dirname}/public`,
   showdir: true,
 }));

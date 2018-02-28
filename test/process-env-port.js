@@ -25,15 +25,15 @@ function checkServerIsRunning(url, ps, t) {
 
 function startServer(url, port, t) {
   t.plan(2);
-  const ecstatic = spawn(process.execPath, [`${__dirname}/../lib/ecstatic.js`], {
+  const etstatic = spawn(process.execPath, [`${__dirname}/../lib/etstatic.js`], {
     env: {
       PORT: String(port),
     },
   });
 
-  ecstatic.stdout.on('data', () => {
-    t.pass('ecstatic should be started');
-    checkServerIsRunning(url, ecstatic, t);
+  etstatic.stdout.on('data', () => {
+    t.pass('etstatic should be started');
+    checkServerIsRunning(url, etstatic, t);
   });
 }
 

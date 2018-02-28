@@ -1,12 +1,12 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../');
+const etstatic = require('../');
 const http = require('http');
 const request = require('request');
 
 test('html reflection prevented', (t) => {
-  const server = http.createServer(ecstatic(`${__dirname}/public/containsSymlink`));
+  const server = http.createServer(etstatic(`${__dirname}/public/containsSymlink`));
 
   server.listen(0, () => {
     const port = server.address().port;

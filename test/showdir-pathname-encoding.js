@@ -1,7 +1,7 @@
 'use strict';
 
 const tap = require('tap');
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const request = require('request');
 const path = require('path');
@@ -29,7 +29,7 @@ test('directory listing with pathname including HTML characters', (t) => {
   const uri = `http://localhost:${port}${path.join('/', baseDir, '/%3Cdir%3E')}`;
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       baseDir,
       showDir: true,

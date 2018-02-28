@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const request = require('request');
 
@@ -11,7 +11,7 @@ test('headers object', (t) => {
   t.plan(4);
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       headers: {
         Wow: 'sweet',
@@ -42,7 +42,7 @@ test('header string', (t) => {
   t.plan(3);
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       header: 'beep: boop', // for command-line --header 'beep: boop'
       autoIndex: true,
@@ -69,7 +69,7 @@ test('header array', (t) => {
   t.plan(3);
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       header: [
         'beep: boop', // --header 'beep: boop'
@@ -98,7 +98,7 @@ test('H array', (t) => {
   t.plan(3);
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       H: [
         'beep: boop', // -H 'beep: boop'

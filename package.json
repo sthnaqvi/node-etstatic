@@ -1,21 +1,21 @@
 {
-  "author": "Joshua Holbrook <josh@nodejitsu.com> (http://jesusabdullah.net)",
-  "name": "ecstatic",
-  "description": "A simple static file server middleware",
-  "version": "3.2.0",
-  "homepage": "https://github.com/jfhbrook/node-ecstatic",
+  "author": "Sayed Tauseef Naqvi <tauseef.naqvi786@gmail.com>",
+  "name": "etstatic",
+  "description": "A simple static file server middleware with custom error file",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sthnaqvi/node-etstatic",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jfhbrook/node-ecstatic.git"
+    "url": "git@github.com:sthnaqvi/node-etstatic.git"
   },
-  "main": "./lib/ecstatic.js",
+  "main": "./lib/etstatic.js",
   "scripts": {
     "fix": "eslint --fix ./lib/ ./example/ ./test",
     "pretest": "eslint ./lib/ ./example/ ./test",
     "test": "tap --jobs-auto --coverage test/*.js",
     "posttest": "tap --coverage-report=clover"
   },
-  "bin": "./lib/ecstatic.js",
+  "bin": "./lib/etstatic.js",
   "keywords": [
     "static",
     "web",

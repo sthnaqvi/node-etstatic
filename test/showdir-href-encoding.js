@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const request = require('request');
 const path = require('path');
@@ -14,7 +14,7 @@ test('url encoding in href', (t) => {
   const uri = `http://localhost:${port}${path.join('/', baseDir, 'show-dir%24%24href_encoding%24%24')}`;
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       baseDir,
       showDir: true,

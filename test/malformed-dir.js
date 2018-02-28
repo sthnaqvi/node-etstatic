@@ -1,12 +1,12 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const request = require('request');
 
 test('malformed showdir uri', (t) => {
-  const server = http.createServer(ecstatic(__dirname, { showDir: true }));
+  const server = http.createServer(etstatic(__dirname, { showDir: true }));
 
   t.plan(2);
 

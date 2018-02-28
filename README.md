@@ -1,4 +1,4 @@
-# Ecstatic [![build status](https://secure.travis-ci.org/jfhbrook/node-ecstatic.png)](http://travis-ci.org/jfhbrook/node-ecstatic) [![codecov.io](https://codecov.io/github/jfhbrook/node-ecstatic/coverage.svg?branch=master)](https://codecov.io/github/jfhbrook/node-ecstatic?branch=master)
+# etstatic [![build status](https://secure.travis-ci.org/jfhbrook/node-etstatic.png)](http://travis-ci.org/jfhbrook/node-etstatic) [![codecov.io](https://codecov.io/github/jfhbrook/node-etstatic/coverage.svg?branch=master)](https://codecov.io/github/jfhbrook/node-etstatic?branch=master)
 
 ![](http://imgur.com/vhub5.png)
 
@@ -13,12 +13,12 @@ express/connect or on the CLI!
 'use strict';
 
 const express = require('express');
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 
 const app = express();
 
-app.use(ecstatic({
+app.use(etstatic({
   root: `${__dirname}/public`,
   showdir: true,
 }));
@@ -35,13 +35,13 @@ console.log('Listening on :8080');
 
 const http = require('http');
 
-const ecstatic = require('../lib/ecstatic')({
+const etstatic = require('../lib/etstatic')({
   root: `${__dirname}/public`,
   showDir: true,
   autoIndex: true,
 });
 
-http.createServer(ecstatic).listen(8080);
+http.createServer(etstatic).listen(8080);
 
 console.log('Listening on :8080');
 ```
@@ -50,39 +50,39 @@ console.log('Listening on :8080');
 To allow fall through to your custom routes:
 
 ```js
-ecstatic({ root: __dirname + '/public', handleError: false })
+etstatic({ root: __dirname + '/public', handleError: false })
 ```
 
 ## CLI
 
 ```sh
-ecstatic ./public --port 8080
+etstatic ./public --port 8080
 ```
 
 # Install:
 
-For using ecstatic as a library, just npm install it into your project:
+For using etstatic as a library, just npm install it into your project:
 
 ```sh
-npm install --save ecstatic
+npm install --save etstatic
 ```
 
-For using ecstatic as a cli tool, either npm install it globally:
+For using etstatic as a cli tool, either npm install it globally:
 
 ```sh
-npm install ecstatic -g
+npm install etstatic -g
 ```
 
 or install it locally and use npm runscripts to add it to your $PATH, or
-reference it directly with `./node_modules/.bin/ecstatic`.
+reference it directly with `./node_modules/.bin/etstatic`.
 
 
 # API:
 
-## ecstatic(opts);
-## $ ecstatic [dir?] {options} --port PORT
+## etstatic(opts);
+## $ etstatic [dir?] {options} --port PORT
 
-In node, pass ecstatic an options hash, and it will return your middleware!
+In node, pass etstatic an options hash, and it will return your middleware!
 
 ```js
 const opts = {
@@ -99,6 +99,7 @@ const opts = {
   gzip: true,
   defaultExt: 'html',
   handleError: true,
+  errorFileName: 'index',
   serverHeader: true,
   contentType: 'application/octet-stream',
   weakEtags: true,
@@ -113,7 +114,7 @@ options are set to their defaults.
 When running in CLI mode, all options work as above, passed in
 [optimist](https://github.com/substack/node-optimist) style. `port` defaults to
 `8000`. If a `dir` or `--root dir` argument is not passed, ecsatic will
-serve the current dir. Ecstatic also respects the PORT environment variable.
+serve the current dir. etstatic also respects the PORT environment variable.
 
 ### `opts.root`
 ### `--root {root}`
@@ -123,7 +124,7 @@ serve the current dir. Ecstatic also respects the PORT environment variable.
 ### `opts.port`
 ### `--port {port}`
 
-In CLI mode, `opts.port` is the port you want ecstatic to listen to. Defaults
+In CLI mode, `opts.port` is the port you want etstatic to listen to. Defaults
 to 8000. This can be overridden with the `--port` flag or with the PORT
 environment variable.
 
@@ -175,7 +176,7 @@ of colon separated strings.
 `-H` and `--header` options to set headers on the command-line like curl:
 
 ``` sh
-$ ecstatic ./public -p 5000 -H 'Access-Control-Allow-Origin: *'
+$ etstatic ./public -p 5000 -H 'Access-Control-Allow-Origin: *'
 ```
 
 ### `opts.si`
@@ -203,8 +204,8 @@ to resolve to `./public/a-file.html`, set this to `true`. If you want
 ### `opts.gzip`
 ### `--no-gzip`
 
-By default, ecstatic will serve `./public/some-file.js.gz` in place of
-`./public/some-file.js` when the gzipped version exists and ecstatic determines
+By default, etstatic will serve `./public/some-file.js.gz` in place of
+`./public/some-file.js` when the gzipped version exists and etstatic determines
 that the behavior is appropriate. If `./public/some-file.js.gz` is not valid
 gzip, this will fall back to `./public/some-file.js`. You can turn this off
 with `opts.gzip === false`.
@@ -213,7 +214,7 @@ with `opts.gzip === false`.
 ### `--no-server-header`
 
 Set `opts.serverHeader` to false in order to turn off setting the `Server`
-header on all responses served by ecstatic.
+header on all responses served by etstatic.
 
 ### `opts.contentType`
 ### `--content-type {type}`
@@ -229,12 +230,16 @@ header. Can either be a path to a
 [`.types`](http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types)
 file or an object hash of type(s).
 
-    ecstatic({ mimeType: { 'mime-type': ['file_extension', 'file_extension'] } })
+    etstatic({ mimeType: { 'mime-type': ['file_extension', 'file_extension'] } })
 
 ### `opts.handleError`
 
 Turn **off** handleErrors to allow fall-through with
 `opts.handleError === false`, Defaults to **true**.
+
+### `opts.errorFileName`
+
+Set `opts.errorFileName = 'index'` to set error file when **handleErrors=true** , Defaults errorFileName is **404**.
 
 ### `opts.weakEtags`
 ### `--no-weak-etags`
@@ -265,13 +270,13 @@ Defaults to **false**.
 
 This works more or less as you'd expect.
 
-### ecstatic.showDir(folder);
+### etstatic.showDir(folder);
 
-This returns another middleware which will attempt to show a directory view. Turning on auto-indexing is roughly equivalent to adding this middleware after an ecstatic middleware with autoindexing disabled.
+This returns another middleware which will attempt to show a directory view. Turning on auto-indexing is roughly equivalent to adding this middleware after an etstatic middleware with autoindexing disabled.
 
 # Tests:
 
-Ecstatic has a fairly extensive test suite. You can run it with:
+etstatic has a fairly extensive test suite. You can run it with:
 
 ```sh
 $ npm test
@@ -279,7 +284,7 @@ $ npm test
 
 # Contribute:
 
-Without outside contributions, ecstatic would wither and die! Before
+Without outside contributions, etstatic would wither and die! Before
 contributing, take a quick look at the contributing guidelines in
 [./CONTRIBUTING.md](./CONTRIBUTING.md) . They're relatively painless, I promise.
 

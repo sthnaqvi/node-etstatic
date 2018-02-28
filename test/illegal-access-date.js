@@ -1,14 +1,14 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const path = require('path');
 const request = require('request');
 
 test('if-modified-since illegal access date', (t) => {
   const dir = path.join(__dirname, 'public');
-  const server = http.createServer(ecstatic(dir));
+  const server = http.createServer(etstatic(dir));
 
   t.plan(2);
 

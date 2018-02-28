@@ -1,14 +1,14 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../');
+const etstatic = require('../');
 const http = require('http');
 const request = require('request');
 const eol = require('eol');
 
 test('range', (t) => {
   t.plan(4);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
   t.on('end', () => { server.close(); });
 
   server.listen(0, () => {
@@ -28,7 +28,7 @@ test('range', (t) => {
 
 test('range past the end', (t) => {
   t.plan(4);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
   t.on('end', () => { server.close(); });
 
   server.listen(0, () => {
@@ -48,7 +48,7 @@ test('range past the end', (t) => {
 
 test('NaN range', (t) => {
   t.plan(3);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
   t.on('end', () => { server.close(); });
 
   server.listen(0, () => {
@@ -67,7 +67,7 @@ test('NaN range', (t) => {
 
 test('flipped range', (t) => {
   t.plan(3);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
   t.on('end', () => { server.close(); });
 
   server.listen(0, () => {
@@ -87,7 +87,7 @@ test('flipped range', (t) => {
 test('partial range', (t) => {
   // 1 test is platform depedent "res.headers['content-range']"
   t.plan(5);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
   t.on('end', () => { server.close(); });
 
   server.listen(0, () => {
@@ -113,7 +113,7 @@ test('partial range', (t) => {
 
 test('include last-modified, etag and cache-control headers', (t) => {
   t.plan(4);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
   t.on('end', () => { server.close(); });
 
   server.listen(0, () => {

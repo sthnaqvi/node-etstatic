@@ -1,4 +1,4 @@
 #!/bin/bash
 
-../lib/ecstatic.js ./public --port 8080
+../lib/etstatic.js ./public --port 8080
 

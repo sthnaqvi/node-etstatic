@@ -1,13 +1,13 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../');
+const etstatic = require('../');
 const http = require('http');
 const request = require('request');
 const eol = require('eol');
 
 test('escaping special characters', (t) => {
-  const server = http.createServer(ecstatic(`${__dirname}/public`));
+  const server = http.createServer(etstatic(`${__dirname}/public`));
 
   server.listen(0, () => {
     const port = server.address().port;

@@ -1,14 +1,14 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../');
+const etstatic = require('../');
 const http = require('http');
 const request = require('request');
 const eol = require('eol');
 
 test('default defaultExt', (t) => {
   t.plan(3);
-  const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
+  const server = http.createServer(etstatic(`${__dirname}/public/subdir`));
 
   server.listen(0, () => {
     const port = server.address().port;

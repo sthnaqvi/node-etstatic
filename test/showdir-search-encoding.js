@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const request = require('request');
 const path = require('path');
@@ -14,7 +14,7 @@ test('directory listing with query string specified', (t) => {
   const uri = `http://localhost:${port}${path.join('/', baseDir, '?a=1&b=2')}`;
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       baseDir,
       showDir: true,

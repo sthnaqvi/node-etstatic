@@ -3,12 +3,12 @@
 const test = require('tap').test;
 const http = require('http');
 const request = require('request');
-const ecstatic = require('../');
+const etstatic = require('../');
 
 test('custom cache option number', (t) => {
   let server = null;
   try {
-    server = http.createServer(ecstatic({
+    server = http.createServer(etstatic({
       root: `${__dirname}/public/`,
       cache: 3600,
     }));
@@ -33,7 +33,7 @@ test('custom cache option number', (t) => {
 test('custom cache option string', (t) => {
   let server = null;
   try {
-    server = http.createServer(ecstatic({
+    server = http.createServer(etstatic({
       root: `${__dirname}/public/`,
       cache: 'max-whatever=3600',
     }));
@@ -59,7 +59,7 @@ test('custom cache option function returning a number', (t) => {
   let i = 0;
   let server = null;
   try {
-    server = http.createServer(ecstatic({
+    server = http.createServer(etstatic({
       root: `${__dirname}/public/`,
       cache() {
         i += 1;
@@ -94,7 +94,7 @@ test('custom cache option function returning a string', (t) => {
   let i = 0;
   let server = null;
   try {
-    server = http.createServer(ecstatic({
+    server = http.createServer(etstatic({
       root: `${__dirname}/public/`,
       cache() {
         i += 1;

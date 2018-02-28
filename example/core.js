@@ -2,12 +2,12 @@
 
 const http = require('http');
 
-const ecstatic = require('../lib/ecstatic')({
+const etstatic = require('../lib/etstatic')({
   root: `${__dirname}/public`,
   showDir: true,
   autoIndex: true,
 });
 
-http.createServer(ecstatic).listen(8080);
+http.createServer(etstatic).listen(8080);
 
 console.log('Listening on :8080');

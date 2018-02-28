@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/ecstatic');
+const etstatic = require('../lib/etstatic');
 const http = require('http');
 const request = require('request');
 const path = require('path');
@@ -14,7 +14,7 @@ test('304_not_modified_strong', (t) => {
   const file = 'a.txt';
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       gzip: true,
       baseDir,
@@ -61,7 +61,7 @@ test('304_not_modified_weak', (t) => {
   const file = 'b.txt';
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       gzip: true,
       baseDir,
@@ -106,7 +106,7 @@ test('304_not_modified_strong_compare', (t) => {
   const file = 'b.txt';
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       gzip: true,
       baseDir,
@@ -174,7 +174,7 @@ test('304_not_modified_weak_compare', (t) => {
   const file = 'c.js';
 
   const server = http.createServer(
-    ecstatic({
+    etstatic({
       root,
       gzip: true,
       baseDir,

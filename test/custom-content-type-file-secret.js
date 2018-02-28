@@ -3,12 +3,12 @@
 const test = require('tap').test;
 const http = require('http');
 const request = require('request');
-const ecstatic = require('../');
+const etstatic = require('../');
 
 test('custom contentType via .types file', (t) => {
   let server = null;
   try {
-    server = http.createServer(ecstatic({
+    server = http.createServer(etstatic({
       root: `${__dirname}/public/`,
       mimetypes: `${__dirname}/fixtures/custom_mime_type.types`,
     }));

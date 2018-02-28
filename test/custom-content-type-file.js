@@ -3,10 +3,10 @@
 const test = require('tap').test;
 const http = require('http');
 const request = require('request');
-const ecstatic = require('../');
+const etstatic = require('../');
 
 function setup(opts) {
-  return http.createServer(ecstatic(opts));
+  return http.createServer(etstatic(opts));
 }
 
 test('throws when custom contentType .types file does not exist', (t) => {
