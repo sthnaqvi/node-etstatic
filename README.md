@@ -2,7 +2,7 @@
 
 ![](http://imgur.com/vhub5.png)
 
-A simple static file server middleware. Use it with a raw http server,
+A simple static file server middleware with custom error file. Use it with a raw http server,
 express/connect or on the CLI!
 
 # Examples:
