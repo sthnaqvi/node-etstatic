@@ -1,8 +1,8 @@
 {
   "author": "Sayed Tauseef Naqvi <tauseef.naqvi786@gmail.com>",
   "name": "etstatic",
-  "description": "A simple static file server middleware with custom error file",
-  "version": "1.0.2",
+  "description": "A simple static file server middleware n",
+  "version": "1.0.3",
   "homepage": "https://github.com/sthnaqvi/node-etstatic",
   "repository": {
     "type": "git",

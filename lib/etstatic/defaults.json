@@ -10,6 +10,7 @@
   "gzip": true,
   "defaultExt": ".html",
   "handleError": true,
+  "errorFileName": 404,
   "serverHeader": true,
   "contentType": "application/octet-stream",
   "weakEtags": true,
